@@ -2634,6 +2634,7 @@ static int read_memory_progbuf_inner(struct target *target, target_addr_t addres
 		riscv_addr_t receive_addr = read_addr - size * 2;
 		unsigned read = 0;
 		for (size_t i = 0; i < reads; i++) {
+			riscv_addr_t receive_addr = read_addr + ((int64_t)i-2) * size;
 			assert(receive_addr < address + size * count);
 			if (receive_addr < address)
 				continue;
