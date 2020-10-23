@@ -63,19 +63,49 @@ static int cmsis_dap_v2_speed_div(int speed, int *khz)
     return ERROR_OK;
 }
 
-static int cmsis_dap_execute_queue(void)
+static int cmsis_dap_v2_execute_queue(void)
 {
     // TODO
     return ERROR_OK;
 }
+
+static int cmsis_dap_v2_swd_init(void)
+{
+    // TODO
+    return ERROR_OK;
+}
+
+static int cmsis_dap_v2_swd_switch_seq(enum swd_special_seq seq)
+{
+    // TODO
+    return ERROR_OK;
+}
+
+static void cmsis_dap_v2_swd_read_reg(uint8_t cmd, uint32_t *value, uint32_t ap_delay_hint)
+{
+    // TODO
+}
+
+static void cmsis_dap_v2_swd_write_reg(uint8_t cmd, uint32_t value, uint32_t ap_delay_hint)
+{
+    // TODO
+}
+
+static int cmsis_dap_v2_swd_run_queue(void)
+{
+    // TODO
+    return ERROR_OK;
+}
+
+#if 0
+static int cmsis_dap_v2_swd_trace(bool swo)
+{
+    // TODO
+    return ERROR_OK;
+}
+#endif
 
 static int cmsis_dap_v2_dap_op_connect(struct adiv5_dap *dap)
-{
-    // TODO
-    return ERROR_OK;
-}
-
-static int stlink_dap_check_reconnect(struct adiv5_dap *dap)
 {
     // TODO
     return ERROR_OK;
@@ -127,7 +157,7 @@ static int cmsis_dap_v2_dap_op_run(struct adiv5_dap *dap)
     return ERROR_OK;
 }
 
-int cmsis_dap_v2_dap_op_sync(struct adiv5_dap *dap)
+static int cmsis_dap_v2_dap_op_sync(struct adiv5_dap *dap)
 {
     // TODO
     return ERROR_OK;
@@ -140,6 +170,33 @@ static void cmsis_dap_v2_dap_op_quit(struct adiv5_dap *dap)
 
 
 static const char * const cmsis_dap_v2_transport[] = { "swd", "jtag", NULL };
+
+static const struct command_registration cmsis_dap_v2_command_handlers[] = {
+    #if 0
+    {
+        .name = "cmsis-dap",
+        .mode = COMMAND_ANY,
+        .help = "perform CMSIS-DAP management",
+        .usage = "<cmd>",
+        .chain = cmsis_dap_subcommand_handlers,
+    },
+    {
+        .name = "cmsis_dap_vid_pid",
+        .handler = &cmsis_dap_handle_vid_pid_command,
+        .mode = COMMAND_CONFIG,
+        .help = "the vendor ID and product ID of the CMSIS-DAP device",
+        .usage = "(vid pid)* ",
+    },
+    {
+        .name = "cmsis_dap_serial",
+        .handler = &cmsis_dap_handle_serial_command,
+        .mode = COMMAND_CONFIG,
+        .help = "set the serial number of the adapter",
+        .usage = "serial_string",
+    },
+    #endif
+    COMMAND_REGISTRATION_DONE
+};
 
 static struct jtag_interface cmsis_dap_v2_jtag_interface = {
     .supported = DEBUG_CAP_TMS_SEQ,
