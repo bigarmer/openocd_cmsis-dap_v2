@@ -119,7 +119,8 @@ m4_define([USB1_ADAPTERS],
 	[[xds110], [TI XDS110 Debug Probe], [XDS110]],
 	[[osbdm], [OSBDM (JTAG only) Programmer], [OSBDM]],
 	[[opendous], [eStick/opendous JTAG Programmer], [OPENDOUS]],
-	[[aice], [Andes JTAG Programmer], [AICE]]])
+	[[aice], [Andes JTAG Programmer], [AICE]],
+	[[cmsis_dap_v2], [CMSIS-DAP V2 Compliant Debugger], [CMSIS_DAP_V2]]])
 
 m4_define([USB0_ADAPTERS],
 	[[[usbprog], [USBProg JTAG Programmer], [USBPROG]],

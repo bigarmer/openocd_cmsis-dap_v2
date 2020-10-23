@@ -173,6 +173,9 @@ endif
 if CMSIS_DAP
 DRIVERFILES += %D%/cmsis_dap_usb.c
 endif
+if CMSIS_DAP_V2
+DRIVERFILES += %D%/cmsis_dap_v2.c
+endif
 if IMX_GPIO
 DRIVERFILES += %D%/imx_gpio.c
 endif
